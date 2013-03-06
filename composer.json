@@ -1,0 +1,35 @@
+{
+    "name":         "irs/behat-magento-extension",
+    "description":  "Behat's extension that allows change state of Magento",
+    "keywords":     ["Magento", "Behat", "Fixture"],
+    "type":         "library",
+    "license":      "MIT",
+
+    "authors": [
+        {
+            "name":   "Vadim Kusakin",
+            "email":  "vadim.irbis@gmail.com"
+        }
+    ],
+    
+    "require": {
+        "php":          ">=5.4.0",
+        "behat/behat":  "2.4.*",
+        "irs/magento-initializer": "dev-master"
+    },
+    
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+
+    "repositories": [
+        {
+            "type":  "vcs",
+            "url":   "https://github.com/irs/magento-initializer.git"
+        }
+    ],
+    
+    "autoload": {
+        "psr-0": {"Irs\\BehatMagentoExtension": "src/"}
+    }
+}

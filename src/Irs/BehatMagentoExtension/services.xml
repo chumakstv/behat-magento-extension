@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * This file is part of the Behat Magento extension.
+ * (c) 2013 Vadim Kusakin <vadim.irbis@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+-->
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <parameters>
+
+        <parameter key="irs.magento.source.path">null</parameter>
+        <parameter key="irs.magento.target.path">null</parameter>
+        <parameter key="irs.magento.db.host">localhost</parameter>
+        <parameter key="irs.magento.db.user">root</parameter>
+        <parameter key="irs.magento.db.password"></parameter>
+        <parameter key="irs.magento.db.schema">null</parameter>
+        <parameter key="irs.magento.scope">store</parameter>
+        <parameter key="irs.magento.store"></parameter>
+        
+        <parameter key="irs.magento.initializer.class">Irs\MagentoInitializer\Initializer\GenericInitializer</parameter>
+        <parameter key="irs.magento.installer.class">Irs\MagentoInitializer\Installer\GenericInstaller</parameter>
+        <parameter key="irs.magento.context.initializer.class">Irs\BehatMagentoExtension\Context\MagentoHooksInitializer</parameter>
+        
+    </parameters>
+    <services>
+
+        <service id="irs.magento.initializer" class="%irs.magento.initializer.class%">
+            <argument>%irs.magento.target.path%</argument>
+            <argument>%irs.magento.store%</argument>
+            <argument>%irs.magento.scope%</argument>
+        </service>
+        
+        <service id="irs.magento.installer" class="%irs.magento.installer.class%">
+            <argument>%irs.magento.target.path%</argument>
+            <argument>%irs.magento.source.path%</argument>
+            <argument>%irs.magento.db.host%</argument>
+            <argument>%irs.magento.db.user%</argument>
+            <argument>%irs.magento.db.password%</argument>
+            <argument>%irs.magento.db.schema%</argument>
+        </service>
+
+        <service id="irs.magento.context.initializer" class="%irs.magento.context.initializer.class%">
+            <argument type="service" id="irs.magento.installer"/>
+            <argument type="service" id="irs.magento.initializer"/>
+            <tag name="behat.context.initializer"/>
+        </service>
+
+    </services>
+</container>
