@@ -22,14 +22,14 @@ trait MagentoHooks
      *
      * @var InstallerInterface
      */
-    private static $_installer;
+    private static $installer;
 
     /**
      * Magento initializer
      *
      * @var InitializerInterface
      */
-    private static $_initializer;
+    private static $initializer;
 
     /**
      * Sets Magento installer
@@ -38,7 +38,7 @@ trait MagentoHooks
      */
     public static function setInstaller(InstallerInterface $installer)
     {
-        self::$_installer = $installer;
+        self::$installer = $installer;
     }
 
     /**
@@ -47,15 +47,15 @@ trait MagentoHooks
      * @return InstallerInterface
      * @throws \DomainException If installer was not injected
      */
-    protected static function _getInstaller()
+    protected static function getInstaller()
     {
-        if (!self::$_installer) {
+        if (!self::$installer) {
             throw new \DomainException(
                 'Magento installer has not been injected to the context; please turn on extension in behat.yml.'
             );
         }
 
-        return self::$_installer;
+        return self::$installer;
     }
 
     /**
@@ -65,7 +65,7 @@ trait MagentoHooks
      */
     public function setInitializer(InitializerInterface $initializer)
     {
-        self::$_initializer = $initializer;
+        self::$initializer = $initializer;
     }
 
     /**
@@ -74,15 +74,15 @@ trait MagentoHooks
      * @return InitializerInterface
      * @throws \DomainException If initializer was not injected
      */
-    protected static function _getInitializer()
+    protected static function getInitializer()
     {
-        if (!self::$_initializer) {
+        if (!self::$initializer) {
             throw new \DomainException(
                 'Magento initializer has not been injected to the context; please turn on extension in behat.yml.'
             );
         }
 
-        return self::$_initializer;
+        return self::$initializer;
     }
 
 	/**
@@ -92,14 +92,14 @@ trait MagentoHooks
 	{
 		$defaultStateName = 'default';
 
-		if (self::_getInstaller()->isInstalled()) {
-			self::_restoreStateByName($defaultStateName);
+		if (self::getInstaller()->isInstalled()) {
+			self::restoreStateByName($defaultStateName);
 		} else {
-			self::_getInstaller()->install();
-			self::_saveStateByName($defaultStateName);
+			self::getInstaller()->install();
+			self::saveStateByName($defaultStateName);
 		}
 
-		self::_getInitializer()->initialize();
+		self::getInitializer()->initialize();
 	}
 
 	/**
@@ -109,25 +109,25 @@ trait MagentoHooks
 	public static function restoreState(EventInterface $event)
 	{
 		foreach (new StateNameIterator(new TagIterator($event)) as $name) {
-			self::_restoreStateByName($name);
+			self::restoreStateByName($name);
 			return;
 		}
 	}
 
-	private static function _restoreStateByName($name)
+	private static function restoreStateByName($name)
 	{
-		$fileName = self::_getStateFileName($name);
+		$fileName = self::getStateFileName($name);
 		if (!file_exists($fileName)) {
 			throw new \DomainException("Unable to load default state; file '$fileName'.");
 		}
 
-		self::_getInitializer()->restoreState($fileName);
+		self::getInitializer()->restoreState($fileName);
 	}
 
-	private static function _saveStateByName($name)
+	private static function saveStateByName($name)
 	{
-		$fileName = self::_getStateFileName($name);
-		self::_getInitializer()->saveState($fileName);
+		$fileName = self::getStateFileName($name);
+		self::getInitializer()->saveState($fileName);
 	}
 
 	/**
@@ -136,7 +136,7 @@ trait MagentoHooks
      * @param string $name
      * @return string;
 	 */
-	private static function _getStateFileName($name)
+	private static function getStateFileName($name)
 	{
 		return 'states' . DIRECTORY_SEPARATOR . "$name.state";
 	}

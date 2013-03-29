@@ -21,14 +21,14 @@ class MagentoHooksInitializer implements InitializerInterface
      *
      * @var MagentoInstallerInterface
      */
-    private $_installer;
+    private $installer;
 
     /**
      * Magento initializer
      *
      * @var MagentoInitializerInterface
      */
-    private $_initializer;
+    private $initializer;
 
 
     /**
@@ -39,8 +39,8 @@ class MagentoHooksInitializer implements InitializerInterface
      */
     public function __construct(MagentoInstallerInterface $installer, MagentoInitializerInterface $initializer)
     {
-        $this->_installer = $installer;
-        $this->_initializer = $initializer;
+        $this->installer = $installer;
+        $this->initializer = $initializer;
     }
 
     /**
@@ -71,7 +71,7 @@ class MagentoHooksInitializer implements InitializerInterface
      */
     public function initialize(ContextInterface $context)
     {
-        $context->setInstaller($this->_installer);
-        $context->setInitializer($this->_initializer);
+        $context->setInstaller($this->installer);
+        $context->setInitializer($this->initializer);
     }
 }
