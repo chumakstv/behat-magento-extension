@@ -19,7 +19,7 @@ use Behat\Behat\Event\ScenarioEvent;
 use Behat\Gherkin\Node\ScenarioNode;
 use Irs\BehatMagentoExtension\Helper;
 
-require_once 'Irs/BehatMagentoExtension/Helper.php';
+require_once __DIR__ . '/../Helper.php';
 
 class MagentoHooksTest extends \PHPUnit_Framework_TestCase
 {
