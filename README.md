@@ -1,4 +1,4 @@
-behat-magento-extension
-=======================
+Behat's extension for testing Magento based projects
+====================================================
 
-Extension for Behat for testing Magento.
+[![Build Status](https://travis-ci.org/irs/behat-magento-extension.png?branch=master)](https://travis-ci.org/irs/behat-magento-extension)
