@@ -13,7 +13,7 @@
     ],
     
     "require": {
-        "php":          ">=5.4.0",
+        "php":          ">=5.4.7",
         "behat/behat":  "2.4.*",
         "irs/magento-initializer": "dev-master",
         "irs/fso":          "dev-master"
