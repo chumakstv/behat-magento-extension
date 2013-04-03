@@ -65,7 +65,7 @@ Feature: Your first feature
 Current Magento state from target can be saved with `bin\magento save-state` command.
 
 ```
-d:\opensource-workspace\behat-magento-extension>vendor\bin\magento help save-state
+c:\>magento help save-state
 Usage:
  save-state [-c|--config="..."] [-p|--config-profile="..."] [-s|--name="..."]
 
