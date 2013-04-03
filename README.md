@@ -39,6 +39,8 @@ default:
 Usage
 -----
 
+To activate hooks you need to use `Irs\BehatMagentoExtension\Context\MagentoHooks` trait into you features' context.
+
 On first run Magento will be installed into target (by `Irs\MagentoInitializer\Installer\GenericInstaller`) and 
 after that deafult state will be saved into `states/default.state.` Magento will be restored from this state 
 on _before suite_ event.
