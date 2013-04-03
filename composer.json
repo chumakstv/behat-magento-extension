@@ -1,9 +1,10 @@
 {
     "name":         "irs/behat-magento-extension",
-    "description":  "Behat's extension that allows change state of Magento",
+    "description":  "Behat's extension that restore Magento at required state.",
     "keywords":     ["Magento", "Behat", "Fixture"],
     "type":         "library",
     "license":      "MIT",
+    "minimum-stability": "dev",
 
     "authors": [
         {
@@ -15,8 +16,7 @@
     "require": {
         "php":                     ">=5.4.7",
         "behat/behat":             "2.4.*",
-        "irs/magento-initializer": "dev-master",
-        "irs/fso":                 "dev-master"
+        "irs/magento-initializer": "dev-master"
     },
     
     "require-dev": {
