@@ -21,6 +21,7 @@
         <parameter key="irs.magento.db.schema">null</parameter>
         <parameter key="irs.magento.scope">store</parameter>
         <parameter key="irs.magento.store"></parameter>
+        <parameter key="irs.magento.url">null</parameter>
         
         <parameter key="irs.magento.initializer.class">Irs\MagentoInitializer\Initializer\GenericInitializer</parameter>
         <parameter key="irs.magento.installer.class">Irs\MagentoInitializer\Installer\GenericInstaller</parameter>
@@ -42,6 +43,7 @@
             <argument>%irs.magento.db.user%</argument>
             <argument>%irs.magento.db.password%</argument>
             <argument>%irs.magento.db.schema%</argument>
+            <argument>%irs.magento.url%</argument>
         </service>
 
         <service id="irs.magento.context.initializer" class="%irs.magento.context.initializer.class%">

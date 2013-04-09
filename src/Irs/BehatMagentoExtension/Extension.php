@@ -32,6 +32,7 @@ class Extension implements ExtensionInterface
 
         $container->setParameter('irs.magento.source.path', $config['magento']);
         $container->setParameter('irs.magento.target.path', $config['target']);
+        $container->setParameter('irs.magento.url', $config['url']);
         $container->setParameter('irs.magento.db.schema', $config['database']['schema']);
 
         if (isset($config['scope'])) {
@@ -70,6 +71,9 @@ class Extension implements ExtensionInterface
                     ->isRequired()
                     ->end()
                 ->scalarNode('target')
+                    ->isRequired()
+                    ->end()
+                ->scalarNode('url')
                     ->isRequired()
                     ->end()
                 ->arrayNode('database')

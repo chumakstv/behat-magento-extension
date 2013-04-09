@@ -32,6 +32,7 @@ class ExtensionTest extends \PHPUnit_Framework_TestCase
             'store'    => uniqid(),
             'magento'  => uniqid(),
             'target'   => uniqid(),
+            'url'      => uniqid(),
             'database' => array(
                 'host'     => uniqid(),
                 'user'     => uniqid(),
@@ -46,6 +47,7 @@ class ExtensionTest extends \PHPUnit_Framework_TestCase
         // assert
         $this->assertEquals($config['magento'], $container->getParameter('irs.magento.source.path'));
         $this->assertEquals($config['target'], $container->getParameter('irs.magento.target.path'));
+        $this->assertEquals($config['url'], $container->getParameter('irs.magento.url'));
         $this->assertEquals($config['database']['host'], $container->getParameter('irs.magento.db.host'));
         $this->assertEquals($config['database']['user'], $container->getParameter('irs.magento.db.user'));
         $this->assertEquals($config['database']['password'], $container->getParameter('irs.magento.db.password'));
@@ -109,6 +111,7 @@ class ExtensionTest extends \PHPUnit_Framework_TestCase
                         '\Irs\BehatMagentoExtension\Extension' => array(
                             'magento'  => 'path_to_magento',
                             'target'   => 'test_magento_path',
+                            'url'      => 'magento_url',
                             'database' => array(
                                 'host'     => 'host',
                                 'user'     => 'user',
@@ -122,6 +125,7 @@ class ExtensionTest extends \PHPUnit_Framework_TestCase
                     '\Irs\BehatMagentoExtension\Extension' => array(
                         'magento'  => 'path_to_magento',
                         'target'   => 'test_magento_path',
+                        'url'      => 'magento_url',
                         'database' => array(
                             'host'     => 'host',
                             'user'     => 'user',
