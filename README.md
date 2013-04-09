@@ -61,3 +61,23 @@ Feature: Your first feature
     When I do something
     Then I should see something
 ```
+
+Current Magento state from target can be saved with `bin\magento save-state` command.
+
+```
+c:\>magento help save-state
+Usage:
+ save-state [-c|--config="..."] [-p|--config-profile="..."] [-s|--name="..."]
+
+Options:
+ --config (-c)         Path to Behat's config (default: "behat.yml")
+ --config-profile (-p) Profile of Behat's config (default: "default")
+ --name (-s)           State name (default: "states/2013-04-03-06-11-10.state")
+ --help (-h)           Display this help message.
+ --quiet (-q)          Do not output any message.
+ --verbose (-v)        Increase verbosity of messages.
+ --version (-V)        Display this application version.
+ --ansi                Force ANSI output.
+ --no-ansi             Disable ANSI output.
+ --no-interaction (-n) Do not ask any interactive question.
+```
