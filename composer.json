@@ -1,5 +1,5 @@
 {
-    "name":         "irs/behat-magento-extension",
+    "name":         "chumakstv/behat-magento-extension",
     "description":  "Behat's extension that restore Magento at required state.",
     "keywords":     ["Magento", "Behat", "Fixture"],
     "type":         "library",
@@ -18,7 +18,7 @@
         "behat/behat":             "2.4.*",
         "symfony/console":         ">=2.0,<2.3-dev",
         "symfony/yaml":            ">=2.2,<2.3-dev",
-        "irs/magento-initializer": "dev-master"
+        "chumakstv/magento-initializer": "dev-master"
     },
     
     "require-dev": {
